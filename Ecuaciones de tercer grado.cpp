@@ -5,7 +5,7 @@ la cual se resolvera por la formula general*/
 
 #include <iostream>
 #include <cmath>
-
+#include <cstdlib>
 using namespace std;
 int main ()
 {
@@ -27,6 +27,48 @@ int main ()
         cin>>RESP;
 
     }
+    if (A==0)
+    {
+        cout<<"es una ecuacion cuadratica de forma Bx^2+CxD=0 "<<endl;
+        float res1=0,res2=0;
+        float xreal,ximag;
+        aux1=(pow(C,2)-(4*B*D));
+        if (aux1<0)
+        {
+            cout<<"la ecuacion no tiene solucion en los reales "<<endl;
+            xreal=-C/(2*B);
+            ximag=sqrt(-aux1)/(2*B);
+            cout<<"Las soluciones imaginarias son: "<<endl;
+            cout<<xreal<<"+"<<ximag<<"i "<<endl;
+            cout<<xreal<<"-"<<ximag<<"i "<<endl;
+        }
+        else
+        {
+            if (B==0)
+            {
+               cout<<"la ecuacion no es de segundo grado ,la solucion es: "<<D/C;
+            }
+            else
+            {
+               res1=(-C-(sqrt(aux1)))/(2*B);
+               res2=(-C+(sqrt(aux1)))/(2*B);
+               if (res1==res2)
+               {
+                  cout<<"la solucion para la ecuacion es: "<<res1<<endl;
+               }
+                if ((aux1<0)||(B==0))
+                {
+                   cout<<".";
+                }
+                if (res1!=res2) 
+                {
+                   cout<<"las soluciones para la ecuacion son: "<<res1<<" y "<<res2<<endl;
+                }
+        
+            }
+        }
+
+    }
     AA=A;
     if (A!=1)
     {
@@ -40,8 +82,6 @@ int main ()
     d=(pow((q/2),2)+pow((p/3),3));
     r2d=sqrt(d);
     auxq=(-q/2);
-    cout<<"auxq: "<<auxq<<endl;
-    cout<<"raiz de delta: "<<r2d<<endl;
     aux1= auxq+r2d;
     aux2= auxq-r2d;
     if (aux1<0)
@@ -62,22 +102,68 @@ int main ()
     {
         aux2=pow(aux2,(1.0/3.0));
     }
-    
+
     x1=aux1+aux2-(B/3);
-   
-    cout <<"aux1: "<<aux1<<endl;
-    cout <<"aux2: "<<aux2<<endl;
     cout<<"x1= "<<x1<<endl;
+    /*Ahora debemos aplicar rufini para debelar una ecuacion cuadratica*/
 
 
 
+    float a,b,c,e;//e es el reemplazo de D porque ya se uso d anteriormente.
+    float aa,bb,cc,dd;
+    a=A*AA;
+    b=B*AA;
+    c=C*AA;
+    e=D*AA;
 
+    aa=a;
+    bb=(aa*x1)+b;
+    cc=(bb*x1)+c;
+    dd=(cc*x1)+e;
     
-    
-
-
-    
+    float xreal1,ximag2,aux11,res1,res2;
    
+    aux11=(pow(bb,2)-(4*aa*cc));
+    if (aux11<0)
+    {
+        cout<<"la ecuacion no tiene solucion en los reales "<<endl;
+        xreal1=-bb/(2*aa);
+        ximag2=sqrt(-aux11)/(2*aa);
+        cout<<"Las soluciones imaginarias son: "<<endl;
+        cout<<xreal1<<"+"<<ximag2<<"i "<<endl;
+        cout<<xreal1<<"-"<<ximag2<<"i "<<endl;
+    }
+    else
+    {
+        if (aa==0)
+       {
+        cout<<"la ecuacion no es de segundo grado ,la solucion es: "<<cc/bb;
+       }
+        else
+       {
+              res1=(-bb-(sqrt(aux11)))/(2*aa);
+            res2=(-bb+(sqrt(aux11)))/(2*aa);
+            if (res1==res2)
+            {
+                cout<<"la solucion para la ecuacion es: "<<res1<<endl;
+            }
+            if ((aux1<0)||(aa==0))
+            {
+                cout<<".";
+            }
+            if (res1!=res2) 
+            {
+             cout<<"las soluciones para la ecuacion son: "<<res1<<" y "<<res2<<endl;
+            }
+        
+        }
+    }
+    system("pause");
+    
+
+
+
+    
 
 
 }
