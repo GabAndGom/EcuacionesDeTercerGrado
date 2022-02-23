@@ -48,10 +48,6 @@ int main ()
        aux02=((-q/2)-sqrt(-delta));
        aux01=cbrt(aux01);
        aux02=cbrt(aux02);
-       cout<<"p="<<p<<endl;
-       cout<<"q="<<q<<endl;
-       cout<<"delta="<<delta<<endl;
-
     }
     else
     {
@@ -59,9 +55,6 @@ int main ()
        aux02=((-q/2)-sqrt(delta));
        aux01=cbrt(aux01);
        aux02=cbrt(aux02);
-       cout<<"p="<<p<<endl;
-       cout<<"q="<<q<<endl;
-       cout<<"delta="<<delta<<endl;
     }
 
     x1=aux01+aux02-(a/3);           //esta es la primera raiz 
@@ -70,10 +63,6 @@ int main ()
     B=((A*x1)+B);
     C=(B*x1)+C;
     aux03=(B*B)-(4*A*C);
-    cout<<x1<<endl;
-    cout<<"A="<<A<<endl;
-    cout<<"B="<<B<<endl;
-    cout<<"C"<<C<<endl;
     if(A==0)
     {
         cout<<"la ecuacion no es de tercer grado ,la solucion es: "<<C/B;
